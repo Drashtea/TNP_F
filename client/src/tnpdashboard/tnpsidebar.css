@@ -1,0 +1,18 @@
+.sidebar-text
+{
+    font-size: 20px;
+}
+.studentImg
+{
+ 
+border-radius: 60px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+width:100px;
+height: 100px;
+}
+
+ul li a{
+    text-align:left;
+}

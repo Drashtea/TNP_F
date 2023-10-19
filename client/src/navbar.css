@@ -1,0 +1,101 @@
+
+.logo
+{
+    float: left;
+    margin-left: 30px;
+    width: 100px;
+    height: 100px;
+}
+.heading
+{
+    float: left;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    
+}
+span
+{
+    font-size: 15px;
+    margin-left: 30px;
+    font-weight: lighter;
+}
+
+ul {
+    
+    padding-left: 50px;
+    padding-top: 20px;
+    list-style-type: none;
+    overflow: hidden;
+    
+  }
+  
+  li {
+    float: left;
+    
+  }
+  
+  li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding-left: 35px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 20px;
+    text-decoration: none;
+  }
+
+  .active
+  {
+    color:coral;
+    text-decoration: underline;
+  }
+  
+  @media screen and (min-width: 1300px) {
+    table
+    {
+      float: left;
+      border-spacing: 0px;
+
+    }
+  }
+  
+  @media screen and (max-width: 1300px) {
+    .heading
+    {
+        float: left;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        margin-left: 30px;
+        
+    }
+    ul {
+    
+      padding-left: 10px;
+      padding-top: 20px;
+      list-style-type: none;
+      overflow: hidden;
+      
+    }
+    
+    li {
+      float: left;
+      
+    }
+    
+    li a {
+      display: block;
+      color: black;
+      text-align: center;
+      padding: 20px 30px;
+      font-size: 20px;
+      text-decoration: none;
+    }
+    table
+    {
+      float: none;
+      border-spacing: 0px;
+
+    }
+  }

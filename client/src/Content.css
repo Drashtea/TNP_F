@@ -1,0 +1,71 @@
+
+@media screen and (min-width:1301px){
+
+.TainingHeading
+{
+  padding-left: 400px;
+  padding-right: 400px;
+  padding-top: 50px;
+  text-decoration: underline;
+  font-size: 35px;
+}
+
+.description
+{
+    padding-top: 30px;
+    padding-left: 450px;
+    padding-right: 450px;
+     font-size: 25px; 
+}
+.Back
+{
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    height:800px;
+}
+}
+.explore
+{
+    background-color:coral;
+    border-radius: 10px;
+    width:130px;
+    height: 40px;
+    font-weight: 700;
+    border: none;
+    color: white;
+    font-size: 15px;
+}
+footer
+{
+    background-color: black;
+    color: white;
+    text-align: center;
+    height:22px;
+}
+
+@media screen and (max-width:1300px){
+    .description
+    {
+        padding-top: 30px;
+        padding-left: 150px;
+        padding-right: 150px;
+         font-size: 25px; 
+    }
+    .TainingHeading
+    {
+      padding-left: 100px;
+      padding-right: 100px;
+      padding-top: 50px;
+      text-decoration: underline;
+      font-size: 35px;
+    }
+  .Back
+{
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    height:1500px;
+}  
+}
+
