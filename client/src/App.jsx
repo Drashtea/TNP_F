@@ -7,12 +7,17 @@ import TnpRegistration from './tnplogin/TnpRegistration'
 import TnpLogin from "./tnplogin/TnpLogin";
 import FinalView from "./dashboard/FinalView";
 import TnpFinalView from "./tnpdashboard/TnpFinalView";
-import Campusdrive from "./campusDrive/Campusdrive";
 import RegistrationComponent from "./RegistrationComponent";
+import Campusdrive from "./campusDrive/Campusdrive";
 import StudentDetails from "./StudentDetails/StudentDetails";
 import ErrorPage from "./ErrorPage";
 import StudentSetting from "./StudentSetting/StudentSetting";
 import StudentNotification from "./StudentNotification/StudentNotification";
+import TnpCampusDrive from "./campusDrive/TnpCampusDrive";
+import AddCompany from "./campusDrive/AddCompany";
+
+
+
 
 function App()
 {
@@ -34,6 +39,9 @@ function App()
         <Route path="/studentnotification" element={<StudentNotification />}></Route>
         
         <Route path='*' element={<ErrorPage></ErrorPage>}></Route>
+        <Route path="/campusdrive" element={<Campusdrive />}></Route>
+        <Route path="/tnpcampusdrive" element={<TnpCampusDrive />}></Route>
+      <Route path="/addcompany" element={<AddCompany />}></Route>
       </Routes>
     </>
    );

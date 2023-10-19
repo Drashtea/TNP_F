@@ -146,7 +146,7 @@ app.post('/registration',async(req,res)=>{
    });
  */
  
-   
+     
 })
 
 app.post('/get-image',async(req,res)=>{

@@ -27,7 +27,7 @@ export const TnpNavbar = () => {
                             <a class="nav-link" href="" data-target="#myModal" data-toggle="modal">Results</a>
                         </li>
                         <li class="nav-item">
-                  <NavLink className="nav-link" to="/campusdrive" data-target="#myModal" data-toggle="modal">Campus Drives</NavLink>
+                  <NavLink className="nav-link" to="/tnpcampusdrive" data-target="#myModal" data-toggle="modal">Campus Drives</NavLink>
                         
                   
                 </li>
