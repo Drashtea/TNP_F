@@ -154,9 +154,11 @@ app.post('/get-image',async(req,res)=>{
         await studentDetails.find().then(data=>{
             res.send({data:data});
         })
+        console.log("founded");
     }
     catch(err){
         console.log(err);
+
     }
 })
 
