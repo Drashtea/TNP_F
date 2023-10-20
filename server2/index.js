@@ -112,18 +112,33 @@ app.post('/studentdetails',(req,res)=>{
 })
 
 
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, '../client/src/profile_pictures/')
+    },
+    filename: function (req, file, cb) {
+      const uniqueSuffix = Date.now();
+      cb(null,uniqueSuffix+file.originalname);
 
-app.post('/registration',async(req,res)=>{
+    }
+  })
+  
+  const upload = multer({ storage: storage })
+
+app.post('/registration',upload.single('image'), async(req,res)=>{
+
+    const imageName=req.file.filename;
+
+
    const {fname,mname,lname,branch,year,phone,dob,email,address,ssc,hsc,BECGPA,BEPERCENTAGE,image
    }=req.body;
-
+   console.log(image);
   
-   if(!fname || !mname ||!lname ||!branch ||!year ||!phone ||!dob ||!email ||!address ||!ssc ||!hsc || !BECGPA || !BEPERCENTAGE || !image)
+  /*  if(!fname || !mname ||!lname ||!branch ||!year ||!phone ||!dob ||!email ||!address ||!ssc ||!hsc || !BECGPA || !BEPERCENTAGE || !image)
     {
         console.log("not valid param");
-        console.log(image);
-    }
-    else
+    } */
+    
     {
             const emailExists=await  studentDetails.findOne({email:email});
             if(emailExists){
@@ -133,33 +148,20 @@ app.post('/registration',async(req,res)=>{
             }
             else
             {
-                studentDetails.create({firstName:fname,middleName:mname,lastName:lname,Branch:branch,year:year, phone:phone,Date:dob,Email:email,Address:address,SSC:ssc,HSC:hsc,BECGPA:BECGPA,BEPERCENTAGE:BEPERCENTAGE,photo:image}).then(() => {
-                    // Send a JSON response with a custom status
-                    res.status(201).json({ status: "ok" }); // 201 indicates "Created"
+                studentDetails.create({firstName:fname,middleName:mname,lastName:lname,Branch:branch,year:year, phone:phone,Date:dob,Email:email,Address:address,SSC:ssc,HSC:hsc,BECGPA:BECGPA,BEPERCENTAGE:BEPERCENTAGE,photo:imageName}).then(() => {
+                   
+                    res.status(201).json({ status: "ok" }); 
+                    console.log("added details")
                   })
                   .catch((err) => {
-                    res.status(500).json(err); // Set an appropriate error status code (e.g., 500 for internal server error)
+                    res.status(500).json(err); 
+                    console.log("failed adding details");
                   });
             }
     }
-  /*  await studentDetails.create( { firstName:fname,middleName:mname,lastName:lname,Branch:branch,year:year, phone:phone,Date:dob,email:email,address:address,SSC:ssc,HSC:hsc,BECGPA:BECGPA,BEPERCENTAGE:BEPERCENTAGE,photo:image
-   });
- */
- 
      
 })
 
-app.post('/get-image',async(req,res)=>{
-    try{
-        await studentDetails.find().then(data=>{
-            res.send({data:data});
-        })
-    }
-    catch(err){
-        console.log(err);
-
-    }
-})
 
 app.listen(3001,()=>{
     console.log("Server is running on port 3001");

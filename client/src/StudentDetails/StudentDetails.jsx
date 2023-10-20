@@ -59,9 +59,9 @@ function StudentDetails()
                 <td>{user.BEPERCENTAGE}</td>
                 <td>{user.BECGPA}</td>
                 <td>
-   {user.photo ? 
-      <img width='100' height='100' src={`data:image/png;base64,${user.photo}`}/>: 
-   ''}
+   
+        <img width='100' height='100' src={require(`../profile_pictures/${user.photo}`)}/>
+    
      </td>
                 <td>
                     <button class="action-type-btn border border-white"><a href="../distribute/distributeDetails.php">

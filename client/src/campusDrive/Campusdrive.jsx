@@ -2,8 +2,8 @@ import React from "react";
 import Navbar from "../dashboard/Navbar";
 import Sidebar from "../dashboard/Sidebar";
 import symbol from "./Oracle-Symbol.png";
-import { ReactDialogBox } from 'react-js-dialog-box'
-import 'react-js-dialog-box/dist/index.css'
+/* import { ReactDialogBox } from 'react-js-dialog-box'
+import 'react-js-dialog-box/dist/index.css' */
 class Campusdrive extends React.Component
 {
   constructor() {
@@ -12,7 +12,6 @@ class Campusdrive extends React.Component
       isOpen: false,
       isApply:false
     }
-    
   }
   openBox = () => {
     this.setState({
@@ -57,7 +56,7 @@ class Campusdrive extends React.Component
     <a href="#" class="btn btn-success" onClick={this.openApplyBox}>Apply</a>
     {this.state.isApply && (
           <>
-            <ReactDialogBox
+           {/*  <ReactDialogBox
               closeBox={this.closeApplyBox}
               modalWidth='50%'
               headerBackgroundColor='coral'
@@ -117,13 +116,13 @@ time zone whenever there is a requirement.<br></br>
 </div>
                </div>
               
-            </ReactDialogBox>
+            </ReactDialogBox> */}
           </>
         )}
     
     {this.state.isOpen && (
           <>
-            <ReactDialogBox
+            {/* <ReactDialogBox
               closeBox={this.closeBox}
               modalWidth='50%'
               headerBackgroundColor='coral'
@@ -167,7 +166,7 @@ time zone whenever there is a requirement.<br></br>
                  </form>
               </div>
               
-            </ReactDialogBox>
+            </ReactDialogBox> */}
           </>
         )}
     <a href="#" class="btn btn-primary" style={{marginLeft:50}} onClick={this.openBox}>Description</a>

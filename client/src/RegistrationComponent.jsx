@@ -57,24 +57,32 @@ const Registrationform=()=>{
    await setBranch(event.target.value);
   };
 
-  
+  const ImageUpload=async(e)=>{
+      setImage(e.target.files[0]);
+
+  }
   const handlePhone = (value, data) => {
     setPhone(value);
   };
 
-
-
   const handleSubmit=async(e)=>{
 	e.preventDefault();
 
+  const formData=new FormData();
+  formData.append("image",image);
+  //name and value
+
+
   try {
-    const data= await axios.post('http://localhost:3001/registration', {fname,mname,lname,branch,year,phone,dob,email,address,ssc,hsc,BECGPA,BEPERCENTAGE,image
-   }).then(res=>{console.log(JSON.stringify(res.status))});
+    const data= await axios.post('http://localhost:3001/registration', {fname,mname,lname,branch,year,phone,dob,email,address,ssc,hsc,BECGPA,BEPERCENTAGE,image,
+   },{headers:{"Content-Type":"multipart/form-data"}}).then(res=>{console.log(JSON.stringify(res.status))});
    } catch (error) {
      console.error('Error uploading image:', error);
    }
   }
 
+
+  
         return (
             <div>
               <Navbar></Navbar>
@@ -273,14 +281,9 @@ const Registrationform=()=>{
                                  <label style={{color:"gray"}}>Photo</label>
                                  <span style={{color:"red"}}>*jpeg/jpg/png</span>
                                  <br></br>
-                                 <input type="file" accept="image/jpeg,image/jpg,image/png" onChange={e=>setImage(e.target.files[0])} required/>
+                                 <input type="file" accept="image/*"  onChange={ImageUpload} required/>
                             </div>
-                            <div className="col">
-                                 <label style={{color:"gray"}}>Resume</label>
-                                 <span style={{color:"red"}}>*jpeg/png/pdf</span>
-                                 <br></br>
-                                 <input type="file" accept=".pdf/image/jpeg,image/jpg,image/png" required/>
-                            </div>
+                           
                     </div>  
                    
                       <div class="box-footer" style={{marginTop:70}}>

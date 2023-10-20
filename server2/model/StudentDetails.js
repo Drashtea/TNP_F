@@ -58,7 +58,6 @@ const Student_details=new mongoose.Schema({
     },
     photo:{
         type:String,
-        required:true
     }
 });
 
