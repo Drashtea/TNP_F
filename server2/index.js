@@ -67,9 +67,9 @@ app.post('/login',async(req,res)=>{
            if(password==user.password)
            {
             console.log("same password");
-                /*  const token=jwt.sign({email:user.email,role:user.role},"jwt-secret-key",{expiredIn:'id'})
-                res.cookie('token',token) */
-                return res.json("success")
+            /*const token=jwt.sign({email:user.email,role:user.role},"jwt-secret-key",{expiredIn:'id'})
+            res.cookie('token',token) */
+            return res.json({uname : user.name,email:user.email});
            }
            else
            {

@@ -1,14 +1,17 @@
 import React from 'react'
 import "./tnpsidebar.css";
 import pic1 from "./user.jpg"
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 const TnpSidebar = () => {
+
     return (
          <div class="sidebar-offcanvas pl-0" id="sidebar" role="navigation" style={{backgroundColor:"#e9ecef"}}>
             <ul class="nav flex-column sticky-top pl-0 pt-5 p-3 mt-3 ">
             <li class="nav-item mb-2 mt-3"><img src={pic1} className='studentImg'/></li>
                 
-                <li class="nav-item mb-2 mt-3"><a class="nav-link" href="#" style={{color:"coral"}}><h3>Suthar Priya</h3></a></li>
+                <li class="nav-item mb-2 mt-3"><a class="nav-link" href="#" style={{color:"coral"}}><h3>priya</h3></a></li>
                 <li class="nav-item mb-2 "><NavLink to="/tnpdashboard" className="nav-link text-secondary" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-columns-gap" viewBox="0 0 16 16">
   <path d="M6 1v3H1V1h5zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm14 12v3h-5v-3h5zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5zM6 8v7H1V8h5zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H1zm14-6v7h-5V1h5zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1h-5z"/>
 </svg><span className="ml-3 sidebar-text">Dashboard</span></NavLink></li>

@@ -8,21 +8,25 @@ import CustFooter from "../CustFooter";
 import './css/roboto-font.css'; // Import the Roboto font CSS
 import './fonts/font-awesome-5/css/fontawesome-all.min.css'; // Import the Font Awesome CSS
 import './css/style.css'; // Import the main style CSS
+import TnpSidebar from "../tnpdashboard/TnpSidebar";
 
 
 function TnpLogin() {
 	const navigate=useNavigate();
 	const[email,setEmail]=useState();
 	const[password,setPassword]=useState();
+	const[uname,setUname]=useState();
 	
 	axios.defaults.withCredentials=true;
 	const handleSubmit=async(e)=>{
 	  e.preventDefault();
 	  const data=await axios.post('http://localhost:3001/login',{email,password}).then(res=>{
-		  if(res.data==='success')
-		  {
-		  alert(res.data);
-		  navigate('/tnpdashboard','true');}
+		if (res.data) {
+			alert("Welcome ! " + res.data.uname);
+			navigate('/tnpdashboard', 'true');
+			setUname(res.data.uname);
+			console.log(res.data.uname);
+		  }
 		  else
 		  {
 			setPassword=()=>{
@@ -38,7 +42,6 @@ function TnpLogin() {
   return (
 	<>
 	<Navbar></Navbar>
-   
 	  <div className="page-content">
 		 <div className="form-v5-content">
 			 <form className="form-detail" method="post" onSubmit={handleSubmit}>
@@ -66,6 +69,7 @@ function TnpLogin() {
 	   
 		 </div>
 		</div>
+		
 	  <CustFooter></CustFooter>
 	  </>
   )
