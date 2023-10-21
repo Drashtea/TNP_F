@@ -1,14 +1,53 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./sidebar.css";
-import pic1 from "./user.jpg"
+import pic1 from "./user.jpg";
+import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 const Sidebar = () => {
+
+  const[email,setMail]=useState('');
+  const[name,setName]=useState('');
+
+  useEffect(()=>{
+    const storedMail=localStorage.getItem('email');
+    const storedName=localStorage.getItem('uname');
+    if(storedMail){
+      setMail(storedMail);
+    }
+    if(storedName){
+      setName(storedName);
+    }else{
+      storedName(email);
+    }
+  },[]);
+
+//to get perticular user data
+  const [userData, setUserData] = useState(null);
+  useEffect(() => {
+    axios.get(`http://localhost:3001/userDetails/${email}`)
+      .then((response) => {
+        setUserData(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching user data:', error);
+      });
+  }, [email]);
+
+
+
     return (
+      
          <div class="col-md-3 col-lg-2 sidebar-offcanvas pl-0" id="sidebar" role="navigation" style={{backgroundColor:"#e9ecef"}}>
             <ul class="nav flex-column sticky-top pl-0 pt-5 p-3 mt-3 ">
-            <li class="nav-item mb-2 mt-3"><img src={pic1} className='studentImg'/></li>
+            <li class="nav-item mb-2 mt-3">
+            {userData && userData.photo ? (
+              <img src={require(`../profile_pictures/${userData.photo}`)} className='studentImg'/>
+            ) : (
+              <img src={pic1} className='studentImg'/>
+            )}
+            </li>
                 
-                <li class="nav-item mb-2 mt-3"><a class="nav-link" href="#" style={{color:"coral"}}><h3>Suthar Priya</h3></a></li>
+                <li class="nav-item mb-2 mt-3"><a class="nav-link" href="#" style={{color:"coral"}}><h3>{name}</h3></a></li>
                 <li class="nav-item mb-2 "><NavLink className="nav-link text-secondary" to="/dashboard"><i class="fa fa-bars font-weight-bold"></i> <span className="ml-3 sidebar-text">Dashboard</span></NavLink></li>
                 <li class="nav-item mb-2">
                     <NavLink className="nav-link text-secondary"  data-toggle="collapse" to="/registration"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="50" fill="currentColor" class="bi bi-file-earmark-person-fill" viewBox="0 0 16 16">

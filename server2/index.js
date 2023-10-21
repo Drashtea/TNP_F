@@ -54,7 +54,8 @@ app.post('/register',async(req,res)=>{
             }
             else
             {
-               userModel.create({name,email,phone,password,cpassword}).then(user=>res.json({status:"success"})).catch(err=>res.json(err));
+               userModel.create({name,email,phone,password,cpassword}).then(user=>res.json({uname : user.name,email:user.email})).catch(err=>res.json(err));
+               
             }
     }
 })
@@ -67,8 +68,7 @@ app.post('/login',async(req,res)=>{
            if(password==user.password)
            {
             console.log("same password");
-            /*const token=jwt.sign({email:user.email,role:user.role},"jwt-secret-key",{expiredIn:'id'})
-            res.cookie('token',token) */
+           
             return res.json({uname : user.name,email:user.email});
            }
            else
@@ -91,9 +91,7 @@ app.post('/Studentlogin',async(req,res)=>{
            if(lpassword==user.password)
            {
             console.log("same password");
-                /*  const token=jwt.sign({email:user.email,role:user.role},"jwt-secret-key",{expiredIn:'id'})
-                res.cookie('token',token) */
-                return res.json("success")
+            return res.json({uname : user.name,email:user.email});
            }
            else
            {
@@ -134,23 +132,24 @@ app.post('/registration',upload.single('image'), async(req,res)=>{
    }=req.body;
    console.log(image);
   
-  /*  if(!fname || !mname ||!lname ||!branch ||!year ||!phone ||!dob ||!email ||!address ||!ssc ||!hsc || !BECGPA || !BEPERCENTAGE || !image)
+   /* if(!fname || !mname ||!lname ||!branch ||!year ||!phone ||!dob ||!email ||!address ||!ssc ||!hsc || !BECGPA || !BEPERCENTAGE || !image)
     {
         console.log("not valid param");
-    } */
-    
+    }
+     */
     {
-            const emailExists=await  studentDetails.findOne({email:email});
+            const emailExists=await  studentDetails.findOne({email:email}).then(console.log("founded"));
+            
             if(emailExists){
                 console.log("Email exists");
                 this.status=555;
-                res.json({status:555});
+                return res.json({msg:"Email Already exists"});
             }
             else
             {
                 studentDetails.create({firstName:fname,middleName:mname,lastName:lname,Branch:branch,year:year, phone:phone,Date:dob,Email:email,Address:address,SSC:ssc,HSC:hsc,BECGPA:BECGPA,BEPERCENTAGE:BEPERCENTAGE,photo:imageName}).then(() => {
                    
-                    res.status(201).json({ status: "ok" }); 
+                   /*  res.status(201).json({ status: "ok" });  */
                     console.log("added details")
                   })
                   .catch((err) => {
@@ -162,6 +161,23 @@ app.post('/registration',upload.single('image'), async(req,res)=>{
      
 })
 
+
+app.get('/userDetails/:email', async (req, res) => {
+    const email = req.params.email;
+    try {
+      const user = await studentDetails.findOne({Email:email}); 
+      if (user) {
+        console.log(user.photo);
+        res.json(user);
+      } else {
+        console.log("Done")
+        res.status(404).json({ message: 'User not found' });
+      }
+    } catch (error) {
+        console.log("Error aa gayi");
+      res.status(500).json({ message: 'Server error' });
+    }
+});
 
 app.listen(3001,()=>{
     console.log("Server is running on port 3001");

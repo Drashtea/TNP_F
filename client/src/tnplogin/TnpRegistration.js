@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Navbar from "../Navbar";
 import {NavLink} from "react-router-dom"
@@ -18,11 +18,13 @@ const TnpRegistration=() => {
   const[password,setPassword]=useState();
   const[cpassword,setCpassword]=useState();
   
+  
   const handleSubmit=async(e)=>{
 	e.preventDefault();
 	const data=await axios.post('http://localhost:3001/register',{name,email,phone,password,cpassword}).then(res=>{
-		alert(res.status);
+		alert("Successfully Created Account");
 		navigate('/tnpdashboard','true');
+		localStorage.setItem('uname', res.data.uname);
 	}).catch(err=>alert(err))
   }
 

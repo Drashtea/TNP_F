@@ -32,10 +32,13 @@ const Loginform =() => {
   const handleSubmitLogin=async(e)=>{
     e.preventDefault();
     const data=await axios.post('http://localhost:3001/Studentlogin',{lemail,lpassword}).then(res=>{
-        if(res.data==='success')
+        if(res.data)
         {
-        alert(res.data);
-        navigate('/dashboard','true');}
+            alert("Welcome ! " + res.data.uname);
+			navigate('/dashboard', 'true');
+			localStorage.setItem('uname', res.data.uname);
+            localStorage.setItem('email', res.data.email);
+        }
         else
         {
           setPassword=()=>{

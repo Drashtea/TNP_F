@@ -24,8 +24,8 @@ function TnpLogin() {
 		if (res.data) {
 			alert("Welcome ! " + res.data.uname);
 			navigate('/tnpdashboard', 'true');
-			setUname(res.data.uname);
-			console.log(res.data.uname);
+			localStorage.setItem('uname', res.data.uname);
+			
 		  }
 		  else
 		  {
@@ -39,6 +39,7 @@ function TnpLogin() {
         alert("Invalid Credentials");
     })
 	}
+	console.log(uname);
   return (
 	<>
 	<Navbar></Navbar>
@@ -65,6 +66,7 @@ function TnpLogin() {
 				 </div>
 		
 		<div className="form-row-last">Don't Have an Account?<NavLink to="/TnpRegistration">Register</NavLink></div>
+		
 			 </form>
 	   
 		 </div>

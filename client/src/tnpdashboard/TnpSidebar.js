@@ -1,17 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./tnpsidebar.css";
 import pic1 from "./user.jpg"
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-const TnpSidebar = () => {
+const TnpSidebar = (props) => {
+ 
+  const[name,setName]=useState('');
+
+  useEffect(()=>{
+    const storedName=localStorage.getItem('uname');
+    if(storedName){
+      setName(storedName);
+    }
+  },[]);
 
     return (
+
          <div class="sidebar-offcanvas pl-0" id="sidebar" role="navigation" style={{backgroundColor:"#e9ecef"}}>
+    
             <ul class="nav flex-column sticky-top pl-0 pt-5 p-3 mt-3 ">
             <li class="nav-item mb-2 mt-3"><img src={pic1} className='studentImg'/></li>
                 
-                <li class="nav-item mb-2 mt-3"><a class="nav-link" href="#" style={{color:"coral"}}><h3>priya</h3></a></li>
+                <li class="nav-item mb-2 mt-3"><a class="nav-link" href="#" style={{color:"coral"}}><h3>{name}</h3></a></li>
                 <li class="nav-item mb-2 "><NavLink to="/tnpdashboard" className="nav-link text-secondary" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-columns-gap" viewBox="0 0 16 16">
   <path d="M6 1v3H1V1h5zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm14 12v3h-5v-3h5zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5zM6 8v7H1V8h5zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H1zm14-6v7h-5V1h5zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1h-5z"/>
 </svg><span className="ml-3 sidebar-text">Dashboard</span></NavLink></li>
@@ -34,6 +45,7 @@ const TnpSidebar = () => {
   <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
 </svg><span className="ml-3 sidebar-text"> Settings&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</span></a></li>
             </ul>
+           
        </div>
     )
 }

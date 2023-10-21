@@ -12,10 +12,7 @@ function StudentDetails()
         axios.post('http://localhost:3001/studentdetails').then(users=>setUsers(users.data)).catch(err=>console.log(err))
     },[]);
 
-    const base64=users.map(user=>{
-        return (`data:image/png;base64,${user.photo}`);
-    })
-
+   
     return(
          <>
          <TnpNavbar></TnpNavbar>
