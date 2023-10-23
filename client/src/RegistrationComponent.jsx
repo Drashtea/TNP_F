@@ -75,7 +75,7 @@ const Registrationform=()=>{
 
   try {
     const data= await axios.post('http://localhost:3001/registration', {fname,mname,lname,branch,year,phone,dob,email,address,ssc,hsc,BECGPA,BEPERCENTAGE,image,
-   },{headers:{"Content-Type":"multipart/form-data"}}).then(res=>{console.log(JSON.stringify(res.status))});
+   },{headers:{"Content-Type":"multipart/form-data"}}).then(res=>{alert(res.data.msg)});
    } catch (error) {
      console.error('Error uploading image:', error);
    }
@@ -84,7 +84,9 @@ const Registrationform=()=>{
 
   
         return (
+
             <div>
+              
               <Navbar></Navbar>
               <div class="container-fluid" id="main">
                  <div class="row row-offcanvas row-offcanvas-left">

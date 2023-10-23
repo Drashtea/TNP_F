@@ -189,7 +189,7 @@ function StudentSetting()
 
                       </div>
                   </form>
-
+<CustFooter></CustFooter>
                 </div>
               </div>
             </div>

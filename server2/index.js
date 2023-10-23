@@ -137,10 +137,10 @@ app.post('/registration',upload.single('image'), async(req,res)=>{
         console.log("not valid param");
     }
      */
-    {
-            const emailExists=await  studentDetails.findOne({email:email}).then(console.log("founded"));
+            const emailExists=await  studentDetails.findOne({Email:email});
             
             if(emailExists){
+                
                 console.log("Email exists");
                 this.status=555;
                 return res.json({msg:"Email Already exists"});
@@ -157,7 +157,6 @@ app.post('/registration',upload.single('image'), async(req,res)=>{
                     console.log("failed adding details");
                   });
             }
-    }
      
 })
 
