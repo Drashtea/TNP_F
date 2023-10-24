@@ -1,7 +1,7 @@
 import React from "react";
 import TnpNavbar from "../tnpdashboard/TnpNavbar";
 import TnpSidebar from "../tnpdashboard/TnpSidebar";
-import symbol from "./Oracle-Symbol.png"
+import symbol from "../images/Oracle-Symbol.png"
 import { NavLink } from "react-router-dom";
 function TnpCampusDrive()
 {
@@ -12,7 +12,7 @@ function TnpCampusDrive()
             <div class="row row-offcanvas row-offcanvas-left">
             <TnpSidebar/>
                  
-<div class="col main pt-5 mt-5" style={{maxWidth:"100%",minWidth:800,maxHeight:1000,minHeight:"21%",marginLeft:"20%"
+<div class="col main pt-5 mt-5" style={{maxWidth:"100%",minWidth:800,maxHeight:1000,minHeight:"21%",marginLeft:250
 }}>            
       <div class="input-group row" style={{marginTop:30}}>
      <div className="col-10">   

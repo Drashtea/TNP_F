@@ -36,7 +36,7 @@ function AddCompany()
             <div class="row row-offcanvas row-offcanvas-left">
             <TnpSidebar/>
                  
-           <div class="col main pt-5 mt-5" style={{maxWidth:"100%",minWidth:800,maxHeight:1000,minHeight:"21%",marginLeft:"20%"}}> 
+           <div class="col main pt-5 mt-5" style={{maxWidth:"100%",minWidth:800,maxHeight:1000,minHeight:"21%",marginLeft:250}}> 
            <div style={{border:"1px solid #dcdcdc "}}>
            <div style={{backgroundColor:"coral",color:"white"}}>
            <p style={{textAlign:"center",fontSize:30}}>Add New Comapny</p>
@@ -46,7 +46,7 @@ function AddCompany()
            <form style={{marginTop:50}}>
             <div className="row">
              <div className="col-8">
-                <h3 style={{textAlign:"center",marginBottom:50,color:"#1e90ff"}}>Company Details</h3> 
+                <h3 style={{textAlign:"center",marginBottom:50,color:"coral"}}>Company Details</h3> 
                 <div className="form-group row container-fluid">
                 <label className="col">Company Logo :</label>
                 <input className="form-control col" type="file" accept="image/jpeg,image/jpg,image/png" required style={{marginRight:100}}/>
@@ -97,6 +97,7 @@ function AddCompany()
                        Offline
                        </label>
                 </div>
+
             <div class="form-check col-2">
                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="driveOnline" />
                 <label class="form-check-label">
@@ -111,18 +112,22 @@ function AddCompany()
             </div>
              
              </div>
-
+             <div className="form-group row container-fluid">
+                <label className="col">Deadline Date :</label>
+                <input className="form-control col" type="date" style={{marginRight:100}} required/>
+             </div>
+           
              <div className="form-group row container-fluid">
                 <label className="col">More info :</label>
-                <textarea className="form-control col"  id="joiningBonus" rows={4} style={{marginRight:100}} required/>
+                <textarea className="form-control col"  id="joiningBonus" rows={4} style={{marginRight:100}}/>
              </div>
            
              </div>
              <div className="col">
-             <h3 style={{textAlign:"center",marginBottom:50,color:"#1e90ff"}}>Eligibility Criteria</h3>   
+             <h3 style={{textAlign:"center",marginBottom:50,color:"coral"}}>Eligibility Criteria</h3>   
              <div className="form-group row container-fluid">
                 <label className="col">10 Percentage :</label>
-                <input className="form-control col" type="number" id="_10Per" style={{marginRight:100}} required onChange={(e)=>{
+                <input className="form-control col" type="number" id="_10Per"  required onChange={(e)=>{
                                 if(e.target.value>0 && e.target.value<100)
                                 {
                                     set10PerError('')
@@ -137,7 +142,7 @@ function AddCompany()
              </div>
              <div className="form-group row container-fluid">
                 <label className="col">12/Diploma Percentage :</label>
-                <input className="form-control col" type="number" id="12orDiplomaPer" style={{marginRight:100}} required onChange={(e)=>{
+                <input className="form-control col" type="number" id="12orDiplomaPer"  required onChange={(e)=>{
                                 if(e.target.value>0 && e.target.value<100)
                                 {
                                     set12PerError('')
@@ -151,7 +156,7 @@ function AddCompany()
              </div>
              <div className="form-group row container-fluid">
                 <label className="col">BE Percentage :</label>
-                <input className="form-control col" type="number" id="bePer" style={{marginRight:100}} required onChange={(e)=>{
+                <input className="form-control col" type="number" id="bePer"  required onChange={(e)=>{
                                 if(e.target.value>0 && e.target.value<100)
                                 {
                                     setBEPerError('')
@@ -166,7 +171,7 @@ function AddCompany()
              </div>
              <div className="form-group row container-fluid">
                 <label className="col">BE CGPA (out of 10) :</label>
-                <input className="form-control col" type="number" id="beCGPA" style={{marginRight:100}} required onChange={(e)=>{
+                <input className="form-control col" type="number" id="beCGPA"  required onChange={(e)=>{
                                 if(e.target.value>0 && e.target.value<10)
                                 {
                                     setCgpaError('')
@@ -183,7 +188,7 @@ function AddCompany()
              </div>
              </div>
                    <div className="form-field form-group row">
-        <label htmlFor="job role" style={{fontSize:30,textAlign:"center",marginTop:30,color:"#1e90ff"}} >Job Role</label>
+        <label htmlFor="job role" style={{fontSize:30,textAlign:"center",marginTop:30,color:"coral"}} >Job Role</label>
         {serviceList.map((singleService, index) => (
           <div key={index} className="services" style={{marginTop:50}}>
             <div className="first-division">

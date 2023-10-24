@@ -1,79 +1,59 @@
 import React from "react";
 import Navbar from "../dashboard/Navbar";
 import Sidebar from "../dashboard/Sidebar";
-import symbol from "./Oracle-Symbol.png";
-/* import { ReactDialogBox } from 'react-js-dialog-box'
-import 'react-js-dialog-box/dist/index.css' */
-class Campusdrive extends React.Component
+import symbol from "../images/Oracle-Symbol.png";
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.min.js'
+
+function Campusdrive()
 {
-  constructor() {
-    super()
-    this.state = {
-      isOpen: false,
-      isApply:false
-    }
-  }
-  openBox = () => {
-    this.setState({
-      isOpen: true
-    })
-  }
-  closeBox = () => {
-    this.setState({
-      isOpen: false
-    })
-  }
-  openApplyBox=()=>{
-    this.setState({
-      isApply:true
-    })
-  }
-  closeApplyBox=()=>{
-    this.setState({
-      isApply:false
-    })
-  }
-  activeSumbit=()=>{
-     document.getElementById("sumbit").removeAttribute("disabled")
-  }
-  render() {
-    return(
-         <>
+  const activeSumbit=()=>{
+    document.getElementById("sumbit").removeAttribute("disabled");
+ }
+ 
+    
+    
+      return (
+        <>
          <Navbar></Navbar>
             <div class="container-fluid" id="main">
             <div class="row row-offcanvas row-offcanvas-left">
             <Sidebar/>
                  
-<div class="col main pt-5 mt-5" style={{maxWidth:"100%",minWidth:800,maxHeight:1000,minHeight:"21%",marginLeft:"20%"
-}}>            
-    <div class="card">
+<div class="col main pt-5 mt-5" style={{maxWidth:"100%",minWidth:800,maxHeight:1000,minHeight:"21%",marginLeft:250
+}}>      
+      <div class="container mt-2">
+          <div class="card">
   <div class="card-header" style={{fontSize:30}}>
-    <img src={symbol} style={{width:50,height:40}}/>ORACLE
+    <img src={symbol} style={{width:60,height:40}}/>ORACLE
   </div>
   <div class="card-body">
     <h5 class="card-title">CTC : 5LPA</h5>
     <p class="card-text">Technology : Java,C,C++</p>
-    <a href="#" class="btn btn-success" onClick={this.openApplyBox}>Apply</a>
-    {this.state.isApply && (
-          <>
-           {/*  <ReactDialogBox
-              closeBox={this.closeApplyBox}
-              modalWidth='50%'
-              headerBackgroundColor='coral'
-              headerTextColor='white'
-              headerHeight='70px'
-              closeButtonColor='white'
-              bodyBackgroundColor='white'
-              bodyTextColor='black'
-              bodyHeight='300px'
-              headerText='Oracle'
-              bodyOverflow='scroll'
-            >
-              
-              <div style={{overflowY:"scroll",height:"250px"}}>
-                <h3 style={{color:"coral"}}>Job Role</h3>
+    <p class="card-text" style={{color:"red",fontSize:18}}><b>Deadline Date:4/5/23</b></p>
+    <button class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#myModal1">Apply</button>
+    <button  class="btn btn-primary" style={{marginLeft:50}} data-bs-toggle="modal" data-bs-target="#myModal2">Description</button>
+
+</div>
+
+</div>
+
+   
+        <div class="modal" id="myModal1">
+          <div class="modal-dialog" style={{width:"900px"}}>
+            <div class="modal-content">
+              <div class="modal-header">
+              <img src={symbol} style={{width:60,height:40}}/>
+                  <h5 class="modal-title" id="exampleModalLabel">Oracle</h5>
+
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+              <div style={{overflowY:"scroll",height:400}}>
+
+                <h2 style={{color:"coral"}}>Job Role</h2>
                 <br></br>
-                <h4>NOC Engineer</h4>
+                <p style={{fontSize:20,fontStyle:"italic"}}><b>NOC Engineer</b></p>
                 <br></br>
                 <p>
 As a NOC Associate with a focus on Linux and Networking, you will be part of a dynamic team
@@ -85,8 +65,8 @@ environments, perform network analysis, collaborate on server builds, and commun
 with the team. Additionally, you'll contribute to maintaining vital technical documentation and
 escalate critical issues for timely resolution.</p>
 <br></br>
+<p style={{fontSize:20,fontStyle:"italic"}}><b>IT Admin</b></p>
 
-<h4>IT Admin</h4>
 <br></br>
 
 <p>
@@ -99,48 +79,46 @@ organization.<br></br>
 • He\She should be ready to work in any customer project and customer's requested
 time zone whenever there is a requirement.<br></br>
 • Ensures effective task management for smooth execution of task</p>
-
-<p style={{fontSize:20,color:"coral"}}>Please Select:</p>
+<form actions="">
+<p style={{fontSize:20,color:"coral"}}><b>Please Select:</b></p>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onClick={this.activeSumbit}/>
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onClick={activeSumbit}/>
   <label class="form-check-label" for="flexRadioDefault1" style={{marginRight:50}}>
-    NOC Engineer
+    <b>NOC Engineer</b>
   </label>
-  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onClick={this.activeSumbit}/>
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onClick={activeSumbit}/>
   <label class="form-check-label" for="flexRadioDefault1">
-  IT Admin
+  <b>IT Admin</b>
   </label>
   <br></br><br></br>
   <button class="btn btn-primary" disabled id="sumbit">Sumbit</button>
-
 </div>
+</form>
                </div>
-              
-            </ReactDialogBox> */}
-          </>
-        )}
-    
-    {this.state.isOpen && (
-          <>
-            {/* <ReactDialogBox
-              closeBox={this.closeBox}
-              modalWidth='50%'
-              headerBackgroundColor='coral'
-              headerTextColor='white'
-              headerHeight='70px'
-              closeButtonColor='white'
-              bodyBackgroundColor='white'
-              bodyTextColor='black'
-              bodyHeight='400px'
-              headerText='Oracle'
-              bodyOverflow='scroll'
-            >
-              
+             
+              </div>
+                
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+                
+            </div>
+          </div>
+        </div>
+        <div class="modal" id="myModal2">
+          <div class="modal-dialog" style={{width:"700px"}}>
+            <div class="modal-content">
+              <div class="modal-header">
+              <img src={symbol} style={{width:60,height:40}}/>
+                  <h5 class="modal-title" id="exampleModalLabel">Oracle</h5>
+
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
               <div style={{overflowY:"scroll",height:"350px",fontSize:18}}>
-                <form action="">
                 <h2 style={{color:"coral",textAlign:"center"}}>Description</h2>
                 <br></br>
-                <h4 style={{textDecoration:"underline",textAlign:"center"}}>Greetings from the Training and placement cell!</h4>
+                <h3 style={{textDecoration:"underline",textAlign:"center"}}>Greetings from the Training and placement cell!</h3>
                 <p style={{textAlign:"center"}}>Oracle Conducting placement drive</p>
                 <br></br>
                 <p><b>Package Offered	(LPA) :</b>4.5</p>
@@ -163,25 +141,26 @@ time zone whenever there is a requirement.<br></br>
                <a href="https://www.oracle.com/in/">https://www.oracle.com/in/</a>
                <br></br><br></br>
                  <h3 style={{color:"green"}}>Mode of Drive:Offline</h3>
-                 </form>
               </div>
-              
-            </ReactDialogBox> */}
-          </>
-        )}
-    <a href="#" class="btn btn-primary" style={{marginLeft:50}} onClick={this.openBox}>Description</a>
-
-  </div>
-  
-</div>
-
-</div>
-</div>
-</div>
             
+               </div>
+                
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+                
+            </div>
+          </div>
+        </div>
+   
+      </div>
+    
+     
+      </div>
+      </div>
+      </div>
+      </>
+      );
 
-         </>
-    );
-}
 }
 export default Campusdrive;
