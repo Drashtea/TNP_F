@@ -181,15 +181,15 @@ function StudentSetting()
                       </div>
                       <div class="box-footer">
 
-                        <button type="submit" class="up btn btn-primary" style={{width:120,height:50,marginTop:15,marginRight:30,borderRadius:10}}>Save Change</button>
+                        <button type="submit" class="up btn btn-primary" style={{height:50,marginTop:15,marginRight:30,borderRadius:10}}>Save Change</button>
     
 
-                        <button type="reset" id="up-cancel" class="up btn btn-warning" style={{width:120,height:50,marginTop:15,marginRight:30,borderRadius:10}}>Cancel</button>
+                        <button type="reset" id="up-cancel" class="up btn btn-warning" style={{height:50,marginTop:15,marginRight:30,borderRadius:10}}>Cancel</button>
 
 
                       </div>
                   </form>
-<CustFooter></CustFooter>
+
                 </div>
               </div>
             </div>
